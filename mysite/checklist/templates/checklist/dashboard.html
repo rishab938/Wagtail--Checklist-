@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="margin-top: 50px;">
+
+    <a href="/admin/pages/{{ page.id }}/edit/" class="btn btn-secondary" style="margin-bottom: 20px;">
+        ← Back to Editor
+    </a>
+
+    <h2 style="text-align:center; margin:30px 0;">
+        Checklist for: <span style="color: #818cf8;">{{ page.title }}</span>
+    </h2>
+
+    <!-- Add Task -->
+    <form method="POST" action="{% url 'checklist_add' page.id %}"
+        style="text-align:center; margin-bottom:30px; display: flex; gap: 10px; justify-content: center;">
+        {% csrf_token %}
+        <input type="text" name="title" style="width:60%;" placeholder="Task title">
+        <button type="submit" class="btn btn-primary">
+            Add Task
+        </button>
+    </form>
+
+    {% for task in tasks %}
+    <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <strong class="card-title">{{ task.title }}</strong>
+                <span class="badge badge-{{ task.status }}">{{ task.status|capfirst }}</span>
+            </div>
+
+            <div>
+                <a href="{% url 'checklist_approve' task.id %}" class="link-action link-approve">
+                    Approve
+                </a>
+                <a href="{% url 'checklist_reject' task.id %}" class="link-action link-reject">
+                    Reject
+                </a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No tasks.</p>
+    {% endfor %}
+</div>
+{% endblock %}

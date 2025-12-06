@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="hero-section">
+    <h1 class="hero-title">Enhanced Workflow Checklist</h1>
+    <p class="hero-subtitle">A Wagtail-based publish approval system</p>
+
+    <div style="margin-top: 2rem;">
+        <a href="{% url 'published_pages' %}" class="btn btn-primary" style="margin-right: 1rem;">
+            View Published Pages
+        </a>
+
+        <a href="/admin/" class="btn btn-secondary">
+            Admin Panel
+        </a>
+    </div>
+</div>
+{% endblock %}

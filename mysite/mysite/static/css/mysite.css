@@ -1,0 +1,99 @@
+/* ===== GLOBAL BASE ===== */
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+a {
+    text-decoration: none;
+    color: #0ea5e9;
+}
+
+.container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* ===== GRADIENT HEADER ===== */
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #0ea5e9 100%);
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    padding: 14px 26px;
+    border-radius: 10px;
+    font-size: 16px;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background: #0ea5e9;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #38bdf8;
+}
+
+.btn-dark {
+    background: #1e293b;
+    color: white;
+}
+
+.btn-dark:hover {
+    background: #334155;
+}
+
+/* ===== PUBLISHED PAGE CARDS ===== */
+.card {
+    background: #1e293b;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.5);
+}
+
+.card-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #0ea5e9;
+}
+
+/* ===== CONTENT PAGE ===== */
+.page-content {
+    background: #1e293b;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.page-content h1 {
+    font-size: 34px;
+    margin-bottom: 25px;
+}

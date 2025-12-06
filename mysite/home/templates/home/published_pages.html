@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="margin-top: 60px;">
+    <h2 style="margin-bottom:40px; text-align: center;">Published Pages</h2>
+
+    {% for page in pages %}
+    <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="{{ page.url }}" style="font-size:1.25rem; font-weight:600; color:#818cf8;">
+            {{ page.title }}
+        </a>
+        <div style="display: flex; gap: 10px;">
+            <a href="/admin/pages/{{ page.id }}/edit/" class="btn btn-secondary"
+                style="font-size: 0.875rem; padding: 8px 16px;">
+                Edit
+            </a>
+            <a href="{% url 'checklist_dashboard' page.id %}" class="btn btn-secondary"
+                style="font-size: 0.875rem; padding: 8px 16px;">
+                Checklist
+            </a>
+        </div>
+    </div>
+    {% empty %}
+    <p>No published pages available.</p>
+    {% endfor %}
+
+</div>
+{% endblock %}

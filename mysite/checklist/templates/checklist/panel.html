@@ -1,0 +1,53 @@
+<div style="padding: 20px; color:white;">
+
+    <h2 style="margin-bottom: 20px;">Checklist Tasks</h2>
+
+    <!-- Add Task Form -->
+    <form method="POST" action="{% url 'checklist_add' page_id %}"
+          style="margin-bottom: 25px; display: flex; gap: 10px;">
+        {% csrf_token %}
+        <input type="text"
+               name="title"
+               placeholder="Task title"
+               style="flex:1; padding:10px; border-radius:6px; background:#1f2937; color:white; border:1px solid #4b5563;">
+        <button type="submit"
+                style="background:#4F46E5; padding:10px 18px; color:white; border-radius:6px;">
+            Add
+        </button>
+    </form>
+
+    {% for task in tasks %}
+        <div style="padding:15px; border:1px solid #374151; border-radius:8px; margin-bottom:12px;">
+
+            <strong>{{ task.title }}</strong>
+
+            {% if task.status == "pending" %}
+                <span style="background:#d97706; padding:4px 8px; border-radius:6px; margin-left:10px; font-size:12px;">
+                    Pending
+                </span>
+            {% elif task.status == "approved" %}
+                <span style="background:#059669; padding:4px 8px; border-radius:6px; margin-left:10px; font-size:12px;">
+                    Approved
+                </span>
+            {% else %}
+                <span style="background:#dc2626; padding:4px 8px; border-radius:6px; margin-left:10px; font-size:12px;">
+                    Rejected
+                </span>
+            {% endif %}
+
+            <div style="margin-top:10px;">
+                <a href="{% url 'checklist_approve' task.id %}"
+                   style="margin-right:10px; color:#10b981; font-weight:600;">
+                    Approve
+                </a>
+                <a href="{% url 'checklist_reject' task.id %}"
+                   style="color:#ef4444; font-weight:600;">
+                    Reject
+                </a>
+            </div>
+
+        </div>
+    {% empty %}
+        <p>No tasks yet.</p>
+    {% endfor %}
+</div>
