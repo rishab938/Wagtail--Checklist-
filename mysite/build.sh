@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# exit on error
 set -o errexit
 
-pip install -r mysite/requirements.txt
+# Install requirements from the correct folder
+pip install -r requirements.txt
 
-
-python manage.py collectstatic --no-input
+# Run Django setup commands
+python manage.py collectstatic --noinput
 python manage.py migrate
